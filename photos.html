@@ -71,12 +71,11 @@
 <body>
     <header>
         <div class="container mx-auto flex items-center justify-between">
-            <h1 class="text-2xl tracking-wide">Longneck44 Photos</h1>
+            <h1 class="text-2xl font-bold">Longneck44</h1>
             <nav>
-                <ul class="flex space-x-6 items-center tracking-wider">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Photos</a></li>
-                    <li><a href="#" target="_blank">Rental</a></li>
+                <ul class="flex space-x-4 items-center">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="photos.html">Photos</a></li>
                     <li>
                         <a href="index.html#contact" id="contact-btn" class="bg-transparent hover:bg-gray-900 text-gray-900 font-medium hover:text-white px-6 py-1.5 border border-gray-900 hover:border-transparent uppercase tracking-wide">
                             Contact Us
@@ -102,7 +101,23 @@
     </div>
     
     <script>
-        const imageList = [ /* ... (your image list) ... */ ];
+        const imageList = [
+          'OutsideViews1.jpg',
+          'OutsideViews2.jpg', 
+          'OutsideViews3.jpg',
+          'Dining1.jpg',
+          'FrontEntrance.jpg', 
+          'Garage.jpg',
+          'Kitchen1.jpg',
+          'LaundryRoom1.jpg',
+          'LivingRoom1.jpg', 
+          'LivingRoom2.jpg',
+          'MasterBath1.jpg',
+          'MasterBedroom1.jpg',
+          'Patio1.jpg',
+          'Patio2.jpg',
+          'SeatingArea.jpg'
+        ];
         const imageGrid = document.getElementById('image-grid');
     
         imageList.forEach(imageName => {
