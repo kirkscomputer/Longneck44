@@ -8,23 +8,23 @@
     <style>
         /* Basic styling for the pop-up */
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
+            display: none;
+            position: fixed;
+            z-index: 1;
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
         }
 
         .modal-content {
             margin: auto;
             display: block;
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 75%;
+            max-height: 75%;
         }
 
         .close {
@@ -42,6 +42,13 @@
             color: #bbb;
             text-decoration: none;
             cursor: pointer;
+        }
+
+        /* Styling for thumbnails */
+        .image-container img {
+            width: 100%;
+            height: 200px; /* Adjust height as needed for thumbnails */
+            object-fit: cover;
         }
     </style>
 </head>
@@ -62,8 +69,7 @@
 
     <main class="container mx-auto py-8">
         <section class="mb-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="image-grid"> </div>
         </section>
     </main>
 
@@ -78,16 +84,16 @@
             "OutsideViews1.jpg", "Outside_View.jpg", "Patio.jpg", "Shared_Bath.jpg", "View_from_entryway.jpg",
             "master_bath.jpg", "master_bedroom.jpg", "master_closet.jpg", "master_shower.jpg"
         ];
-        const imageContainer = document.querySelector('.grid');
-
+        const imageGrid = document.getElementById('image-grid');
+    
         imageList.forEach(imageName => {
             const imageUrl = `https://raw.githubusercontent.com/kirkscomputer/Longneck44/main/images/${imageName}`;
-            const imageDiv = document.createElement('div');
-            imageDiv.className = 'rounded-lg overflow-hidden cursor-pointer'; // Added cursor-pointer
-            imageDiv.innerHTML = `<img src="${imageUrl}" alt="${imageName.replace('.jpg', '')}" class="w-full h-full object-cover" onclick="openModal('${imageUrl}')">`;
-            imageContainer.appendChild(imageDiv);
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'image-container rounded-lg overflow-hidden cursor-pointer';
+            imageContainer.innerHTML = `<img src="${imageUrl}" alt="${imageName.replace('.jpg', '')}" onclick="openModal('${imageUrl}')">`;
+            imageGrid.appendChild(imageContainer);
         });
-
+    
         function openModal(imageUrl) {
             const modal = document.createElement('div');
             modal.className = 'modal';
@@ -98,11 +104,27 @@
             document.body.appendChild(modal);
             modal.style.display = "block";
         }
-
+    
         function closeModal() {
             const modal = document.querySelector('.modal');
             modal.remove();
         }
+    
+        function updateLastUpdated() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true // Use 12-hour time format
+            };
+            const formattedDate = now.toLocaleString('en-US', options); // Format date and time
+            document.getElementById('last-updated').textContent = formattedDate;
+        }
+    
+        updateLastUpdated();
     </script>
 </body>
 </html>

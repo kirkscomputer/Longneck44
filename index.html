@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Longneck44</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css">
+  <script>
+      function updateLastUpdated() {
+          const now = new Date();
+          const options = { 
+              year: 'numeric', 
+              month: 'short', 
+              day: 'numeric',
+              hour: 'numeric',
+              minute: 'numeric' 
+          };
+          const formattedDate = now.toLocaleString('en-US', options); // Format date and time
+          document.getElementById('last-updated').textContent = formattedDate;
+      }
+
+      // Call the function to set the initial timestamp on page load
+      window.onload = updateLastUpdated;
+  </script>
 </head>
 <body class="bg-gray-900 text-white">
   <header class="py-6 bg-gray-800">
@@ -49,7 +66,7 @@
   </main>
 
   <footer class="bg-gray-800 py-4 text-center">
-    <p>&copy; 2023 Longneck44. All rights reserved. Last updated 10:05am 1/13/2025</p>
+    <p>&copy; 2023 Longneck44. All rights reserved. Last updated: <span id="last-updated"></span></p>
   </footer>
 </body>
 </html>
