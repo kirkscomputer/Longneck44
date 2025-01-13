@@ -11,12 +11,10 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f0;
-            color: #333;
+            background-color: #fff8f0;
         }
         header {
-            background-color: #fff;
-            border-bottom: 1px solid #ddd;
+            background-color: transparent;
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
@@ -33,90 +31,53 @@
             margin-bottom: 1rem;
         }
         footer {
-            background-color: #fff;
-            border-top: 1px solid #ddd;
+            color: #000;
             padding-top: 1rem;
             padding-bottom: 1rem;
         }
-        nav ul li a {
-            color: #555;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #000;
-        }
-        #contact button { /* Style the button to look like a link */
-            background: none;
-            border: none;
-            padding: 0;
-            color: #007bff; /* Standard link blue */
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        #contact button:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
     </style>
-    <script>
-        function updateLastUpdated() {
-            const now = new Date();
-            const options = {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric'
-            };
-            const formattedDate = now.toLocaleString('en-US', options);
-            document.getElementById('last-updated').textContent = formattedDate;
-        }
-
-        window.onload = updateLastUpdated;
-
-        function openEmailInNewWindow() {
-            window.open('mailto:Wade@longneck44.com', '_blank');
-        }
-    </script>
 </head>
-<body class="bg-gray-900 text-white">
+<body>
     <header>
         <div class="container mx-auto flex items-center justify-between">
-            <h1 class="text-2xl font-bold text-black">Longneck44</h1>
+            <h1 class="text-2xl font-bold">Longneck44</h1>
             <nav>
-                <ul class="flex space-x-4">
+                <ul class="flex space-x-4 items-center">
                     <li><a href="#">Home</a></li>
                     <li><a href="photos.html">Photos</a></li>
                     <li><a href="#" target="_blank">Rental</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li>
+                        <button id="contact-btn" class="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded">
+                            Contact Us
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <main class="container mx-auto py-8">
         <section class="mb-8">
             <img src="https://raw.githubusercontent.com/kirkscomputer/Longneck44/main/images/OutsideViews1.jpg" alt="Outside Views 1" class="hero-image">
-            <h2 class="text-3xl font-bold section-title text-center mt-4">About</h2>
-            <p class="text-center">1287 sq. ft. 2 bedroom 2 bath with exercise room. This property is perfectly located for easy access to Glenwood Springs, Rifle, and Grand Junction.</p>
+            <h2 class="text-3xl font-bold text-center mt-4">About</h2>
+            <p class="text-center text-lg">1287 sq. ft. 2 bedroom 2 bath with exercise room. This property is perfectly located for easy access to Glenwood Springs, Rifle, and Grand Junction.</p>
         </section>
-
-        <section class="mb-8">
-            <h2 class="text-xl font-bold section-title">See our listing on Furnished Finder</h2>
-            <div class="text-center">
-                <a href="https://www.furnishedfinder.com/property/354800_l" target="_blank" class="text-orange-500 hover:text-orange-600">https://www.furnishedfinder.com/property/354800_l</a>
-            </div>
-        </section>
-
-        <section id="contact" class="text-center">
-            <h2 class="text-xl font-bold section-title">Contact Us</h2>
-            <button onclick="openEmailInNewWindow()">Contact Us</button>
+    
+        <section class="mb-8 text-center">
+            <a href="https://www.furnishedfinder.com/property/354800_l" target="_blank" class="text-blue-500 hover:text-blue-700 text-lg">
+                See our listing on Furnished Finder
+            </a>
         </section>
     </main>
-
+    
     <footer>
-        <p class="text-center">&copy; 2023 Longneck44. All rights reserved. Last updated: <span id="last-updated"></span></p>
+        <p class="text-center">&copy; <span id="year"></span> Longneck44. All rights reserved.</p>
     </footer>
-</body>
-</html>
+    
+    <script>
+        const contactBtn = document.getElementById('contact-btn');
+        contactBtn.addEventListener('click', () => {
+            window.location.href = 'mailto:Wade@longneck44.com';
+        });
+    </script>
+    </body>
+    </html>
