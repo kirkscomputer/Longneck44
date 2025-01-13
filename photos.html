@@ -11,12 +11,11 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f0;
-            color: #333;
+            background-color: #f8f5f0;
+            color: #333333;
         }
         header {
-            background-color: #fff;
-            border-bottom: 1px solid #ddd;
+            background-color: transparent;
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
@@ -24,12 +23,11 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
-            transition: transform 0.2s; /* Smooth hover effect */
+            transition: transform 0.3s;
         }
         .image-container:hover {
-            transform: scale(1.05); /* Slight zoom on hover */
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
-
+            transform: scale(1.03);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
         }
         .modal {
             display: none;
@@ -45,13 +43,13 @@
         .modal-content {
             margin: auto;
             display: block;
-            max-width: 75%;
-            max-height: 75%;
+            max-width: 90%;
+            max-height: 90%;
         }
         .close {
             position: absolute;
-            top: 15px;
-            right: 35px;
+            top: 20px;
+            right: 40px;
             color: #f1f1f1;
             font-size: 40px;
             font-weight: bold;
@@ -59,53 +57,54 @@
         }
         .close:hover,
         .close:focus {
-            color: #bbb;
+            color: #d8b68c;
             text-decoration: none;
             cursor: pointer;
         }
         footer {
-            background-color: #fff;
-            border-top: 1px solid #ddd;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
+            color: #333333;
+            padding-top: 2rem; 
+            padding-bottom: 2rem;
         }
     </style>
-    <script>
-        function updateLastUpdated() { /* ... (timestamp function) ... */ }
-        window.onload = updateLastUpdated;
-        function openModal(imageUrl) { /* ... (modal function) ... */ }
-        function closeModal() { /* ... (close modal function) ... */ }
-    </script>
 </head>
-<body class="bg-gray-900 text-white">
+<body>
     <header>
         <div class="container mx-auto flex items-center justify-between">
-            <h1 class="text-2xl font-bold text-black">Longneck44 Photos</h1>
+            <h1 class="text-2xl tracking-wide">Longneck44 Photos</h1>
             <nav>
-                <ul class="flex space-x-4">
+                <ul class="flex space-x-6 items-center tracking-wider">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#">Photos</a></li>
                     <li><a href="#" target="_blank">Rental</a></li>
-                    <li><a href="index.html#contact">Contact Us</a></li>
+                    <li>
+                        <a href="index.html#contact" id="contact-btn" class="bg-transparent hover:bg-gray-900 text-gray-900 font-medium hover:text-white px-6 py-1.5 border border-gray-900 hover:border-transparent uppercase tracking-wide">
+                            Contact Us
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
-
-    <main class="container mx-auto py-8">
-        <section class="mb-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="image-grid"></div>
+    <main class="container mx-auto py-12">
+        <section class="mb-12">  
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="image-grid"></div>
         </section>
     </main>
-
+    
     <footer>
-        <p class="text-center">&copy; 2023 Longneck44. All rights reserved. Last updated: <span id="last-updated"></span></p>
+        <p class="text-center">&copy; <span id="year"></span> Longneck44. All rights reserved.</p>
     </footer>
-
+    
+    <div id="modal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
+    
     <script>
         const imageList = [ /* ... (your image list) ... */ ];
         const imageGrid = document.getElementById('image-grid');
-
+    
         imageList.forEach(imageName => {
             const imageUrl = `https://raw.githubusercontent.com/kirkscomputer/Longneck44/main/images/${imageName}`;
             const imageContainer = document.createElement('div');
@@ -113,12 +112,18 @@
             imageContainer.innerHTML = `<img src="${imageUrl}" alt="${imageName.replace('.jpg', '')}" onclick="openModal('${imageUrl}')">`;
             imageGrid.appendChild(imageContainer);
         });
-
-        function openModal(imageUrl) { /* ... (modal function) ... */ }
-        function closeModal() { /* ... (close modal function) ... */ }
-        function updateLastUpdated() { /* ... (timestamp function) ... */ }
-
-        updateLastUpdated();
+    
+        function openModal(imageUrl) {
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = imageUrl;
+            modal.style.display = 'block';
+        }
+    
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
     </script>
-</body>
-</html>
+    </body>
+    </html>
