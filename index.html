@@ -1,164 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Longneck44</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-        }
-        
-        .header {
-            background-color: #1f2937;
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 0;
-        }
-        
-        .header h1 {
-            color: #ff6600;
-            font-size: 48px;
-            margin: 0;
-            font-weight: 600;
-        }
-        
-        .header p {
-            color: #fff;
-            font-size: 24px;
-            margin: 10px 0 0;
-        }
-        
-        .main-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .rental-info {
-            text-align: center;
-            color: #ff6600;
-            font-size: 28px;
-            margin: 30px 0;
-            line-height: 1.4;
-        }
-        
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            padding: 20px;
-            margin: 40px 0;
-        }
-        
-        .image-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 100%;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        .image-container img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .furnished-finder {
-            text-align: center;
-            margin: 40px 0;
-            padding: 20px;
-        }
-        
-        .furnished-finder a {
-            color: #ff6600;
-            text-decoration: none;
-            font-size: 20px;
-            display: inline-block;
-            padding: 10px 20px;
-            border: 2px solid #ff6600;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .furnished-finder a:hover {
-            background-color: #ff6600;
-            color: #fff;
-        }
-        
-        .contact {
-            text-align: center;
-            margin: 40px 0;
-            padding: 20px;
-            color: #ff6600;
-            font-size: 24px;
-        }
-        
-        .contact a {
-            color: #ff6600;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        
-        .contact a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Longneck44</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css">
 </head>
-<body>
-    <div class="header">
-        <h1>Welcome to Longneck44</h1>
-        <p>Your Home Away from Home</p>
+<body class="bg-gray-900 text-white">
+  <header class="py-6 bg-gray-800">
+    <div class="container mx-auto flex items-center justify-between">
+      <h1 class="text-2xl font-bold">Welcome to Longneck44</h1>
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Rental</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <div class="main-content">
-        <div class="rental-info">
-            <p>Mid-Term Rental for Traveling Professionals</p>
-            <p>13-26 Week Stays</p>
+  <main class="container mx-auto py-8">
+    <section class="mb-8">
+      <h2 class="text-xl font-bold mb-4">Mid-Term Rental for Traveling Professionals</h2>
+      <div class="grid grid-cols-3 gap-4">
+        <div class="rounded-lg overflow-hidden">
+          <img src="image1.jpg" alt="Image 1" class="w-full h-full object-cover">
         </div>
+        <div class="rounded-lg overflow-hidden">
+          <img src="image2.jpg" alt="Image 2" class="w-full h-full object-cover">
+        </div>
+        <div class="rounded-lg overflow-hidden">
+          <img src="image3.jpg" alt="Image 3" class="w-full h-full object-cover">
+        </div>
+        <div class="rounded-lg overflow-hidden">
+          <img src="image4.jpg" alt="Image 4" class="w-full h-full object-cover">
+        </div>
+        <div class="rounded-lg overflow-hidden">
+          <img src="image5.jpg" alt="Image 5" class="w-full h-full object-cover">
+        </div>
+        <div class="rounded-lg overflow-hidden">
+          <img src="image6.jpg" alt="Image 6" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </section>
 
-        <div class="image-grid">
-            <div class="image-container">
-                <img src="./images/exteriror.jpg" alt="Property Exterior">
-            </div>
-            <div class="image-container">
-                <img src="./images/entry.jpg" alt="Entry Way">
-            </div>
-            <div class="image-container">
-                <img src="./images/living_room.jpg" alt="Living Room">
-            </div>
-            <div class="image-container">
-                <img src="./images/dining_area.jpg" alt="Dining Area">
-            </div>
-            <div class="image-container">
-                <img src="./images/kitchen.jpg" alt="Kitchen">
-            </div>
-            <div class="image-container">
-                <img src="./images/laundry.jpg" alt="Laundry Room">
-            </div>
-        </div>
+    <section class="mb-8">
+      <h2 class="text-xl font-bold mb-4">See our listing on Furnished Finder</h2>
+      <a href="https://www.furnishedfinder.com/property/354800_l" class="text-orange-500 hover:text-orange-600">https://www.furnishedfinder.com/property/354800_l</a>
+    </section>
 
-        <div class="furnished-finder">
-            <a href="https://www.furnishedfinder.com/property/354800_1" target="_blank">
-                View on Furnished Finder
-            </a>
-        </div>
+    <section>
+      <h2 class="text-xl font-bold mb-4">Contact Us</h2>
+      <p>Wade@longneck44.com</p>
+    </section>
+  </main>
 
-        <div class="contact">
-            <p>Contact Us</p>
-            <a href="mailto:Wade@longneck44.com">Wade@longneck44.com</a>
-        </div>
-    </div>
+  <footer class="bg-gray-800 py-4 text-center">
+    <p>&copy; 2023 Longneck44. All rights reserved.</p>
+  </footer>
 </body>
 </html>
