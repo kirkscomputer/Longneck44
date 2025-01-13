@@ -1,82 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Longneck44</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #fff8f0;
-        }
-        header {
-            background-color: transparent;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
-        .hero-image {
-            height: 500px;
-            object-fit: cover;
-            width: 100%;
-        }
-        .container {
-            max-width: 960px;
-        }
-        .section-title {
-            color: #000;
-            margin-bottom: 1rem;
-        }
-        footer {
-            color: #000;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Longneck44</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff8f0;
+    }
+
+    header {
+      background-color: transparent;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .hero-image {
+      height: 500px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .container {
+      max-width: 960px;
+    }
+
+    .section-title {
+      color: #000;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      color: #000;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container mx-auto flex items-center justify-between">
-            <h1 class="text-2xl font-bold">Longneck44</h1>
-            <nav>
-                <ul class="flex space-x-4 items-center">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="photos.html">Photos</a></li>
-                    <li>
-                        <button id="contact-btn" class="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded">
-                            Contact Us
-                        </button>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main class="container mx-auto py-8">
-        <section class="mb-8">
-            <img src="https://raw.githubusercontent.com/kirkscomputer/Longneck44/main/images/Living_Room.jpg" alt="Main Living Area" class="hero-image">
-            <h2 class="text-3xl font-bold text-center mt-4">About</h2>
-            <p class="text-center text-lg">1287 sq. ft. 2 bedroom 2 bath with exercise room. This property is perfectly located for easy access to Glenwood Springs, Rifle, and Grand Junction.</p>
-        </section>
-    
-        <section class="mb-8 text-center">
-            <a href="https://www.furnishedfinder.com/property/354800_l" target="_blank" class="text-blue-500 hover:text-blue-700 text-lg">
-                See our listing on Furnished Finder
-            </a>
-        </section>
-    </main>
-    
-    <footer>
-        <p class="text-center">&copy; <span id="year"></span> Longneck44. All rights reserved.</p>
-    </footer>
-    
-    <script>
-        const contactBtn = document.getElementById('contact-btn');
-        contactBtn.addEventListener('click', () => {
-            window.location.href = 'mailto:Wade@longneck44.com';
-        });
-    </script>
-    </body>
-    </html>
+  <header>
+    <div class="container mx-auto flex items-center justify-between">
+      <h1 class="text-2xl font-bold">Longneck44</h1>
+      <nav>
+        <ul class="flex space-x-4 items-center">
+          <li><a href="#">Home</a></li>
+          <li><a href="photos.html">Photos</a></li>
+          <li>
+            <button id="contact-btn" class="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded">
+              Contact Us
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container mx-auto py-8">
+    <section class="mb-8">
+      <img src="https://raw.githubusercontent.com/kirkscomputer/Longneck44/main/images/Living_Room.jpg" alt="Main Living Area" class="hero-image">
+     
+      <p class="text-center text-lg">1287 sq. ft. 2 bedroom 2 bath with exercise room. This property is perfectly located for easy access to Glenwood Springs, Rifle, and Grand Junction.</p>
+    </section>
+  
+    <section class="mb-8 text-center">
+      <a href="https://www.furnishedfinder.com/property/354800_l" target="_blank" class="text-blue-500 hover:text-blue-700 text-lg">
+        See our listing on Furnished Finder
+      </a>
+    </section>
+  </main>
+ 
+  <footer>
+    <p class="text-center">&copy; <span id="year"></span> Longneck44. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const contactBtn = document.getElementById('contact-btn');
+    contactBtn.addEventListener('click', () => {
+      window.location.href = 'mailto:Wade@longneck44.com';
+    });
+  </script>
+</body>
+</html>
