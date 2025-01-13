@@ -5,8 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Longneck44 Photos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Basic styling for the pop-up */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f0;
+            color: #333;
+        }
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .image-container img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.2s; /* Smooth hover effect */
+        }
+        .image-container:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+
+        }
         .modal {
             display: none;
             position: fixed;
@@ -16,17 +40,14 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0,0,0);
             background-color: rgba(0,0,0,0.9);
         }
-
         .modal-content {
             margin: auto;
             display: block;
             max-width: 75%;
             max-height: 75%;
         }
-
         .close {
             position: absolute;
             top: 15px;
@@ -36,32 +57,36 @@
             font-weight: bold;
             transition: 0.3s;
         }
-
         .close:hover,
         .close:focus {
             color: #bbb;
             text-decoration: none;
             cursor: pointer;
         }
-
-        /* Styling for thumbnails */
-        .image-container img {
-            width: 100%;
-            height: 200px; /* Adjust height as needed for thumbnails */
-            object-fit: cover;
+        footer {
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
     </style>
+    <script>
+        function updateLastUpdated() { /* ... (timestamp function) ... */ }
+        window.onload = updateLastUpdated;
+        function openModal(imageUrl) { /* ... (modal function) ... */ }
+        function closeModal() { /* ... (close modal function) ... */ }
+    </script>
 </head>
 <body class="bg-gray-900 text-white">
-    <header class="py-6 bg-gray-800">
+    <header>
         <div class="container mx-auto flex items-center justify-between">
-            <h1 class="text-2xl font-bold">Longneck44 Photos</h1>
+            <h1 class="text-2xl font-bold text-black">Longneck44 Photos</h1>
             <nav>
                 <ul class="flex space-x-4">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#">Photos</a></li>
                     <li><a href="#" target="_blank">Rental</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -69,23 +94,18 @@
 
     <main class="container mx-auto py-8">
         <section class="mb-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="image-grid"> </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="image-grid"></div>
         </section>
     </main>
 
-    <footer class="bg-gray-800 py-4 text-center">
-        <p>&copy; 2023 Longneck44. All rights reserved. Update 10/13/2024</p>
+    <footer>
+        <p class="text-center">&copy; 2023 Longneck44. All rights reserved. Last updated: <span id="last-updated"></span></p>
     </footer>
 
     <script>
-        const imageList = [
-            "Bedroom2.jpg", "Bedroom2_FullBed.jpg", "DiningArea.jpg", "Entry.jpg", "Garage.jpg",
-            "Kitchen.jpg", "Laundry.jpg", "Living_Room.jpg", "Master_TV_55.jpg", "OutsideView2.jpg",
-            "OutsideViews1.jpg", "Outside_View.jpg", "Patio.jpg", "Shared_Bath.jpg", "View_from_entryway.jpg",
-            "master_bath.jpg", "master_bedroom.jpg", "master_closet.jpg", "master_shower.jpg"
-        ];
+        const imageList = [ /* ... (your image list) ... */ ];
         const imageGrid = document.getElementById('image-grid');
-    
+
         imageList.forEach(imageName => {
             const imageUrl = `https://raw.githubusercontent.com/kirkscomputer/Longneck44/main/images/${imageName}`;
             const imageContainer = document.createElement('div');
@@ -93,37 +113,11 @@
             imageContainer.innerHTML = `<img src="${imageUrl}" alt="${imageName.replace('.jpg', '')}" onclick="openModal('${imageUrl}')">`;
             imageGrid.appendChild(imageContainer);
         });
-    
-        function openModal(imageUrl) {
-            const modal = document.createElement('div');
-            modal.className = 'modal';
-            modal.innerHTML = `
-                <span class="close" onclick="closeModal()">&times;</span>
-                <img class="modal-content" src="${imageUrl}">
-            `;
-            document.body.appendChild(modal);
-            modal.style.display = "block";
-        }
-    
-        function closeModal() {
-            const modal = document.querySelector('.modal');
-            modal.remove();
-        }
-    
-        function updateLastUpdated() {
-            const now = new Date();
-            const options = { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-                hour12: true // Use 12-hour time format
-            };
-            const formattedDate = now.toLocaleString('en-US', options); // Format date and time
-            document.getElementById('last-updated').textContent = formattedDate;
-        }
-    
+
+        function openModal(imageUrl) { /* ... (modal function) ... */ }
+        function closeModal() { /* ... (close modal function) ... */ }
+        function updateLastUpdated() { /* ... (timestamp function) ... */ }
+
         updateLastUpdated();
     </script>
 </body>
